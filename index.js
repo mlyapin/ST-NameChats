@@ -196,7 +196,22 @@ jQuery(async () => {
 
     if (shouldGenerateTitle(ctx.chat)) {
       try {
-        const promptForTitleLLM = extensionSettings.generateTitle;
+        // Build the conversation context from messages
+        const firstUserMessageIndex = ctx.chat.findIndex(message => message.is_user === true);
+        let conversationContext = "";
+        
+        if (firstUserMessageIndex !== -1) {
+          // Include all messages up to and including the first user message
+          const messagesToInclude = ctx.chat.slice(0, firstUserMessageIndex + 1);
+          
+          conversationContext = messagesToInclude.map(message => {
+            const role = message.is_user ? "User" : (message.name || "Assistant");
+            return `${role}: ${message.mes}`;
+          }).join('\n\n');
+        }
+        
+        // Combine the prompt with the conversation context
+        const promptForTitleLLM = `${extensionSettings.generateTitle}\n\nConversation:\n${conversationContext}`;
         console.log(`${MODULE_NAME}: Generating title with prompt: "${promptForTitleLLM}"`);
 
         // Save current active profile to restore later
