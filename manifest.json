@@ -1,0 +1,11 @@
+{
+    "display_name": "NameChats",
+    "loading_order": 1,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "maximl",
+    "version": "0.0.1",
+    "homePage": "https://github.com/maximl"
+}
