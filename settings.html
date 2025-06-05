@@ -13,6 +13,13 @@
         placeholder="Enter prompt for generating chat titles..."></textarea>
       <small>This prompt will be used to generate chat titles when a new chat is created.</small>
 
+      <h3>Max Response Tokens</h3>
+      <div class="form-group">
+        <label for="chat-auto-title-max-tokens">Maximum Response Tokens:</label>
+        <input type="number" id="chat-auto-title-max-tokens" class="form-control" min="1" max="1000" step="1" />
+      </div>
+      <small>Maximum number of tokens for the generated title. Lower values produce shorter titles.</small>
+
       <h3>Connection Profile</h3>
       <div class="form-group">
         <label for="chat-auto-title-connection-profile">Select Connection Profile:</label>
