@@ -4,8 +4,8 @@
  * 3. Trigger renaming.
  * 4. Extension profile will be set as an active in ST now. */
 
-import { generateRaw } from '../../../../script.js'
-import { extension_settings } from '../../../extensions.js'
+import { generateRaw } from "../../../../../../script.js";
+import { extension_settings } from "../../../../../../scripts/extensions.js";
 const {
   getCurrentChatId,
   renameChat,
@@ -107,7 +107,7 @@ function onConnectionProfileSelectChange() {
 jQuery(async () => {
   // Load settings UI
   try {
-    const settingsHtml = await renderExtensionTemplateAsync('third-party/SillyTavern-NameChats', 'settings');
+    const settingsHtml = await renderExtensionTemplateAsync('third-party/ST-NameChats', 'settings');
     const settingsContainer = jQuery('#extensions_settings');
     if (settingsContainer.length) {
       settingsContainer.append(settingsHtml);
